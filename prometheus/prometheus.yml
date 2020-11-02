@@ -1,0 +1,20 @@
+global:
+  ## 抓取间隔
+  scrape_interval:     60s
+  ## 评估规则间隔
+  evaluation_interval: 60s
+ 
+scrape_configs:
+  ## 数据展示
+  - job_name: prometheus
+    static_configs:	  
+      - targets: ['localhost:9090']
+        labels:
+          instance: prometheus
+ 
+  ## 数据接收
+  - job_name: linux
+    static_configs:  
+      - targets: ['localhost:9100']
+        labels:
+          instance: localhost
